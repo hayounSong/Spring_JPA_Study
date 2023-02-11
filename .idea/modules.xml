@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpabook.jpashop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/jpabook.jpashop.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpashop.main.iml" filepath="$PROJECT_DIR$/.idea/modules/jpashop.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jpashop.test.iml" filepath="$PROJECT_DIR$/.idea/modules/jpashop.test.iml" />
     </modules>
   </component>
 </project>
