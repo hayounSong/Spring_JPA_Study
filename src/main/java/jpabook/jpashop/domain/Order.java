@@ -52,4 +52,41 @@ public class Order {
     }
 
     // 이렇게 연관관계 메서드는 실질적으로 컨트롤하는쪽에서 다뤄주는게 좋다
+
+    //생성 메서드, 연간관계를 정리해주는 메서드
+    public static Order createOrder(Member member,Delivery delivery,OrderItem... orderItems){
+        Order order=new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        for(OrderItem orderItem:orderItems){
+            order.addOrderItem(orderItem);
+        }
+        order.setStatus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDateTime.now());
+        return order;
+    }
+
+    //비즈니스 로직 (주문 취소)
+
+    public void cancel(){
+        if(delivery.getStatus()==DeliveryStatus.COMP){
+            throw new IllegalStateException("이미 배송 완료된 상품은 취소가 불가능합니다.");
+        }
+        this.setStatus(OrderStatus.CANCEL);
+
+        for(OrderItem orderItem:orderItems){
+            orderItem.cancel();
+        }
+    }
+
+    // 전체 주문 가격조회 로직
+
+    public int getTotalPrice(){
+        int totalPrice=0;
+        for(OrderItem orderItem:orderItems){
+            totalPrice=totalPrice+orderItem.getTotalPrice();
+        }
+        return totalPrice;
+    }
 }
+
