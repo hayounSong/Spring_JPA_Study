@@ -10,17 +10,16 @@ import java.util.List;
 
 @Repository
 public class OrderRepository {
-
     @PersistenceContext
     private EntityManager em;
 
 
     public void save(Order order){
-    em.persist(order);
+        em.persist(order);
     }
 
     public Order findOne(Long id){
-    return em.find(Order.class,id);
+        return em.find(Order.class,id);
     }
 
     public List<Order> findAllByString(OrderSearch orderSearch){
@@ -34,7 +33,8 @@ public class OrderRepository {
     }
 
     //JPA 크리테리아로 동적 쿼리 생성
-    public List<Order> findAllByCriteria(OrderSearch orderSearch){
+//    public List<Order> findAllByCriteria(OrderSearch orderSearch){
+//
+//    }
 
-    }
 }
